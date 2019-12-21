@@ -10,6 +10,7 @@ def test_remove_only_variant_also_removes_wishlist_item(customer_wishlist_item):
     assert wishlist.items.count() == 1
     wishlist.remove_variant(variant)
     assert wishlist.items.count() == 0
+    assert wishlist.items.count() == 24
     with pytest.raises(WishlistItem.DoesNotExist):
         customer_wishlist_item.refresh_from_db()
 
